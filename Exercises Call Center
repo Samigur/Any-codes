@@ -1,0 +1,45 @@
+
+import random
+def llamadas():
+        L=[]
+        L=[[random.randint(0,10) for j in range (10)] for i in range (5)]
+        return L
+       
+def servicioms(L):
+    vs=[0]*5
+    for i in range(5):
+        sf=0
+        for j in range(10):
+            sf=sf+L[i][j]
+            vs[i]=sf
+    maximo=vs[1]
+    kmaximo=0
+    for k in range (5):
+        if vs[k]>maximo:
+            maximo=vs[k]
+            kmaximo=k
+    return kmaximo
+
+def promAS(L):
+       vp=[0]*10
+       for j in range(10):
+           sc=0
+           for i in range(5): 
+               sc=sc+L[i][j]
+           p=sc/5
+           vp[j]=p
+           return vp
+        
+print("Callcenter lasallista")
+servicios=["Informacion", "Ventas", "Soporte", "Reclamaciones", "Facturacion"]
+L=llamadas()
+print(L)
+sms=servicioms(L)
+print("El servicio mas solicitado fue: ", servicios[sms])
+vp=promAS(L)
+for i in range(10):
+    print(f"El promedio de llamadas por el asesor {i+1} es {vp[i]}")
+
+
+    
+
